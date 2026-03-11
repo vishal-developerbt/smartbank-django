@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include "components/header/adminuiux-auth-header.html"  %}
+
+<div class="adminuiux-wrap">
+    <main class="adminuiux-content">
+        <!-- content -->
+        <div class="container mt-5" id="main-content">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h1 class="mb-4">Welcome to SmartBank!</h1>
+                    
+                    <div class="d-flex justify-content-center gap-3">
+                         <a href="{% url 'blog_list_page' %}" class="btn btn-primary btn-lg">Blogs</a>
+                       {% if request.session.customer_id %}
+                            <a href="{% url 'dashboard' %}" class="btn btn-success btn-lg">
+                            Dashboard
+                        </a>
+                        {% else %}
+                            <!-- Show Login and Register -->
+                            <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Login</a>
+                            <a href="{% url 'register' %}" class="btn btn-secondary btn-lg">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+{% include "components/footer/adminuiux-auth-footer.html"  %}
+{% endblock content %}

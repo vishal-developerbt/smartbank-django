@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+ {% load static %}
+{% block content %}
+    <div class="adminuiux-wrap">
+        <main class="adminuiux-content">
+        <!--Page body-->
+        <div class="coverimg h-100 w-100 top-0 start-0 position-absolute z-index-0">
+            <img src="{% static "img/background-image/backgorund-image-13.jpg" %}" alt="">
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center minheight-dynamic" style="--mih-dynamic: calc(100vh - 145px - env(safe-area-inset-bottom) - env(safe-area-inset-top))">
+            <div class="col-12 col-md-8 col-xl-6">
+                <div class="h-100 py-3 px-md-3">
+                <div class="row h-100 align-items-center justify-content-center">
+                    <div class="col-12 col-sm-8 col-md-11 col-xl-11 col-xxl-10 login-box">
+                    <div class="card adminuiux-card mb-2">
+                        <div class="card-body">
+                        <div class="text-center mb-3 mb-lg-4">
+                            <h1 class="mb-1 text-theme-1">Let's get started&#128077;</h1>
+                            <p class="text-secondary">Provide your few details</p>
+                        </div>
+
+                        <div class="row gx-3 gx-lg-4">
+                            <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namef" placeholder="Enter first name" value="Max" autofocus="">
+                                <label for="namef">First Name</label>
+                            </div>
+                            </div>
+                            <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namel" placeholder="Enter last name" value="Doe">
+                                <label for="namel">Last Name</label>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="emailadd" placeholder="Enter email address" value="info@adminuiux">
+                            <label for="emailadd">Email Address</label>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="form-floating maxwidth-100">
+                            <select class="form-select" id="code" aria-label="Country code">
+                                <option value="1">+1</option>
+                                <option selected>+44</option>
+                                <option value="3">+66</option>
+                                <option value="2">+91</option>
+                            </select>
+                            <label for="code">Code</label>
+                            </div>
+                            <div class="form-floating">
+                            <input type="text" class="form-control" id="phonen" placeholder="Enter your phone number">
+                            <label for="phonen">Phone Number</label>
+                            </div>
+                        </div>
+
+                        <div class="position-relative">
+                            <div class="form-floating mb-2 mb-lg-3">
+                            <input type="password" class="form-control" id="checkstrength" placeholder="Enter your password">
+                            <label for="checkstrength">Password</label>
+                            </div>
+                            <button class="btn btn-square btn-link text-theme-1 position-absolute end-0 top-0 mt-2 me-2 ">
+                            <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                        <div class="feedback mb-2 mb-lg-3">
+                            <div class="row gx-3 gx-lg-4">
+                            <div class="col">
+                                <div class="check-strength" id="checksterngthdisplay">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <span class="small" id="textpassword"></span>
+                                <i class="bi bi-info-circle text-theme-1 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Password should contain atleast 1 capital, 1 alphanumeric & min. 8 characters"></i>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="position-relative">
+                            <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="passwd" placeholder="Confirm your password">
+                            <label for="passwd">Confirm Password</label>
+                            </div>
+                            <button class="btn btn-square btn-link text-theme-1 position-absolute end-0 top-0 mt-2 me-2 ">
+                            <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+
+                        <a href="adminuiux-signup-success.html" class="btn btn-lg btn-theme w-100 mb-4">Sign up</a>
+                        <!-- <button class="btn btn-lg btn-theme w-100 mb-4">Login</button> -->
+                        <div class="text-center">
+                            Already have account? <a href="{% url 'login' %}" class=" ">Login</a> here.
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </main>
+    </div>
+
+<!-- themes -->
+{% include "components/offcanvas/theming.html"  %}
+<!-- footer -->
+{% include "components/footer/adminuiux-auth-footer.html"  %}
+<!-- Page Level js -->
+<script src="{% static 'js/adminuiux/adminuiux-auth.js' %}"></script>
+{% endblock content %}

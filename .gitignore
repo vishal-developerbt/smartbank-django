@@ -1,0 +1,72 @@
+# Django .gitignore
+
+# Python cache
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+
+venv/
+env/
+ENV/
+.venv/
+
+# Django stuff
+
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Media files
+
+media/
+
+# Static collected files
+
+staticfiles/
+
+# Environment variables
+
+.env
+.env.*
+
+# VS Code
+
+.vscode/
+
+# PyCharm
+
+.idea/
+
+# Mac
+
+.DS_Store
+
+# Linux
+
+*.swp
+
+# Testing
+
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Distribution / packaging
+
+build/
+dist/
+*.egg-info/
+
+# Migrations (optional if you don't want them)
+
+# */migrations/*
+
+# !*/migrations/**init**.py
+
+# Node modules (if frontend used)
+
+node_modules/

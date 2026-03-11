@@ -1,0 +1,135 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include "components/header/adminuiux-auth-header.html"  %}
+                <div class="adminuiux-wrap">
+
+                    <main class="adminuiux-content">
+                        <!--Page body-->
+                        <div class="coverimg h-100 w-100 top-0 start-0 position-absolute z-index-0">
+                            <img src="{% static "img/background-image/backgorund-image-13.jpg" %}" alt="">
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row justify-content-center minheight-dynamic" style="--mih-dynamic: calc(100vh - 145px - env(safe-area-inset-bottom) - env(safe-area-inset-top))">
+                                <div class="col-12 col-md-8 col-xl-6">
+                                    <div class="h-100 py-4 px-md-3">
+                                        <div class="row h-100 align-items-center justify-content-center">
+                                            <div class="col-12 col-sm-8 col-md-11 col-xl-11 col-xxl-10 login-box">
+                                                <div class="card adminuiux-card mb-3">
+                                                   <div class="card-body">
+                                                        <div class="text-center mb-4">
+                                                            <h2 class="mb-1 text-theme-1">Login</h2>
+                                                            <p class="text-secondary">Take a deep dive into the new modern era</p>
+                                                        </div>
+
+                                                        <!-- Display Django messages -->
+                                                        {% if messages %}
+                                                            {% for message in messages %}
+                                                                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                                                            {% endfor %}
+                                                        {% endif %}
+
+                                                        <form method="POST">
+                                                            {% csrf_token %}
+
+                                                            <!-- Email input -->
+                                                            <div class="form-floating mb-3">
+                                                                <input type="email" name="email" class="form-control" id="emailadd" placeholder="Enter email address" value="{{ request.POST.email|default:'' }}" autofocus>
+                                                                <label for="emailadd">Email Address</label>
+                                                            </div>
+
+                                                            <!-- Password input with toggle -->
+                                                            <div class="position-relative">
+                                                                <div class="form-floating mb-3">
+                                                                    <input type="password" name="password" class="form-control" id="passwd" placeholder="Enter your password">
+                                                                    <label for="passwd">Password</label>
+                                                                </div>
+                                                                <button type="button" class="btn btn-square btn-link text-theme-1 position-absolute end-0 top-0 mt-2 me-2" id="togglePassword">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </button>
+                                                            </div>
+
+                                                            <!-- Remember me & forgot password -->
+                                                            <div class="row gx-3 align-items-center mb-3">
+                                                                <div class="col py-2">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" name="rememberme" id="rememberme">
+                                                                        <label class="form-check-label" for="rememberme">Remember me</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <a href="forgot-password" class="btn btn-link">Forgot Password?</a>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Login / Signup buttons -->
+                                                            <div class="row gx-3 align-items-center mb-4">
+                                                                <div class="col">
+                                                                    <button type="submit" class="btn btn-lg btn-theme w-100">Login</button>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <a href="{% url 'register' %}" class="btn btn-lg btn-link w-100">Signup <i class="bi bi-chevron-right"></i></a>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- OR divider -->
+                                                            {% comment %} <div class="row gx-3 align-items-center mb-4">
+                                                                <div class="col"><hr></div>
+                                                                <div class="col-auto"><p class="text-secondary">OR Continue with</p></div>
+                                                                <div class="col"><hr></div>
+                                                            </div> {% endcomment %}
+
+                                                            <!-- Social login buttons -->
+                                                            {% comment %} <div class="row gx-2 justify-content-center align-items-center">
+                                                                <div class="col-auto">
+                                                                    <button type="button" class="btn btn-link text-start">
+                                                                        <img src="{% static 'img/g-logo.png' %}" alt="" class="me-1 me-md-2"> Google
+                                                                    </button>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <button type="button" class="btn btn-link text-start">
+                                                                        <img src="{% static 'img/f-logo.png' %}" alt="" class="me-1 me-md-2"> Facebook
+                                                                    </button>
+                                                                </div>
+                                                            </div> {% endcomment %}
+                                                        </form>
+                                                    </div>
+
+                                                    <!-- JS to toggle password visibility -->
+                                                    <script>
+                                                        const togglePassword = document.querySelector('#togglePassword');
+                                                        const password = document.querySelector('#passwd');
+
+                                                        togglePassword.addEventListener('click', function (e) {
+                                                            // Toggle the type attribute
+                                                            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                                                            password.setAttribute('type', type);
+
+                                                            // Toggle the eye icon
+                                                            this.querySelector('i').classList.toggle('bi-eye');
+                                                            this.querySelector('i').classList.toggle('bi-eye-slash');
+                                                        });
+                                                    </script>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+
+                <!-- themes -->
+                {% include "components/offcanvas/theming.html"  %}
+
+                    <!-- footer -->
+                     {% include "components/footer/adminuiux-auth-footer.html"  %}
+
+                        <!-- Page Level js -->
+                        
+<script src="{% static 'js/adminuiux/adminuiux-auth.js' %}"></script>
+
+{% endblock content %}

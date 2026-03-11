@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include "components/header/adminuiux-auth-header.html"  %}
+    <div class="adminuiux-wrap">
+        <main class="adminuiux-content" onclick="contentClick()">
+            <!-- breadcrumb -->
+            <div class="container-fluid mt-3">
+                <div class="bg-theme-1-subtle rounded px-3 py-3">
+                    <div class="row gx-3 align-items-center">
+                        <div class="col col-sm mb-2 mb-sm-0">
+                            <p class="h5">Blogs</p>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0">
+                                    <li class="breadcrumb-item bi"><a href="{% url 'home' %}">Home</a></li>
+                                    <li class="breadcrumb-item active bi" aria-current="page">Blog</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-auto ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Content  -->
+            <div class="container mt-4">
+    <div class="card adminuiux-card mb-4">
+
+        <div class="card-header">
+            <div class="row gx-3 gx-lg-4 align-items-center">
+                <div class="col">
+                    <p class="h6 mb-0">Blog Details</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+
+                <div class="card border-0 shadow-sm">
+
+                    {% if blog.image %}
+                        <img src="{{ blog.image.url }}"
+                             class="card-img-top img-fluid"
+                             alt="{{ blog.title }}"
+                             style="
+                                max-height: 400px;
+                                width: 100%;
+                                object-fit: cover;
+                                border-radius: 8px;
+                             ">
+                    {% else %}
+                        <img src="https://picsum.photos/1000/600"
+                             class="card-img-top img-fluid"
+                             alt="default"
+                             style="
+                                max-height: 400px;
+                                width: 100%;
+                                object-fit: cover;
+                                border-radius: 8px;
+                             ">
+                    {% endif %}
+
+                    <div class="card-body">
+
+                        <!-- Title -->
+                        <h3 class="card-title mb-3">
+                            {{ blog.title }}
+                        </h3>
+
+                        <!-- Date -->
+                        <p class="text-muted small">
+                            {{ blog.created_at|date:"F d, Y" }}
+                        </p>
+
+                        <hr>
+
+                        <!-- Full Content -->
+                        <div class="card-text">
+                            {{ blog.content|linebreaks }}
+                        </div>
+
+                        <!-- Back button -->
+                        <div class="mt-4">
+                            <a href="{% url 'blog_list_page' %}" class="btn btn-secondary">
+                                ← Back to Blogs
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+        </main>
+    </div>
+
+{% include "components/footer/adminuiux-auth-footer.html"  %}
+{% endblock content %}

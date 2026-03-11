@@ -1,0 +1,1437 @@
+{% extends 'base.html' %}
+ {% load static %}
+{% block content %}
+
+    {% comment %} {% include "components/pageloader/adminuiux-pageloader.html" %} {% endcomment %}
+    {% include "components/header/adminuiux-header.html" %}
+    
+                <div class="adminuiux-wrap">
+
+                    <!-- Standard sidebar -->
+                     {% include "components/navigation/adminuiux-sidebar.html" %}
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- page title -->
+                            <div class="container-fluid py-3">
+                                <div class="row gx-3 gx-lg-4 align-items-center page-title">
+                                    <div class="col col-sm mb-3 mb-sm-0 order-1">
+                                        <h5 class="mb-0">My Dashboard</h5>
+                                        <p class="text-secondary small">This is personal intranet</p>
+                                    </div>
+                                    <div class="col-4 col-sm-auto order-4 order-sm-2 ">
+                                        <div class="input-group input-group-md rounded" style="--mw-dynamic:232px">
+                                            <span class="input-group-text text-theme-1"><i class="bi bi-box"></i></span>
+                                            <select class="form-select">
+                                                <option value="Aseets Under Maintenance">Aseets Under Maintenance</option>
+                                                <option value="Revenue">Revenue</option>
+                                                <option value="Sales" selected="">Sales</option>
+                                                <option value="Net New Money">Net New Money</option>
+                                                <option value="Profit">Profit</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col col-sm-auto order-3 order-sm-3">
+                                        <div class="input-group input-group-md width-250">
+                                            <input type="text" class="form-control daterangepickerranges" value="" id="">
+                                            <span class="input-group-text text-theme-1" id="titlecalendar" onclick="this.previousElementSibling.click()"><i class="bi bi-calendar-event"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto ps-0 position-relative order-2 order-sm-4 mb-3 mb-sm-0">
+                                        <div class="dropdown d-inline-block">
+                                            <a class="btn btn-link btn-square no-caret dropdown-toggle" href="#" role="button" id="filterintitle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                                <i class="bi bi-filter"></i>
+                                            </a>
+                                            <div class="dropdown-menu width-300" aria-labelledby="filterintitle">
+                                                <div class="p-1 mb-2">
+                                                    <div class="input-group input-group-md rounded" style="--mw-dynamic:232px">
+                                                        <span class="input-group-text text-theme-1"><i class="bi bi-box"></i></span>
+                                                        <select class="form-control choices" id="titltfilterlist" multiple>
+                                                            <option value="San Francisco">San Francisco</option>
+                                                            <option value="New York">New York</option>
+                                                            <option value="London">London</option>
+                                                            <option value="Chicago">Chicago</option>
+                                                            <option value="India" selected="">India</option>
+                                                            <option value="Sydney">Sydney</option>
+                                                            <option value="Seattle">Seattle</option>
+                                                            <option value="Los Angeles">Los Angeles</option>
+                                                            <option value="Indonesia">Indonesia</option>
+                                                            <option value="Los Angeles">Los Angeles</option>
+                                                            <option value="Chicago">Chicago</option>
+                                                            <option value="India">India</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="invalid-feedback">You have already selected maximum option allowed. (This is Configurable)</div>
+                                                </div>
+                                                <div class="p-1">
+                                                    <h6 class="mb-0">Orders:</h6>
+                                                    <p class="text-secondary small">1256 orders last week</p>
+                                                </div>
+                                                <ul class="list-group list-group-flush bg-transparent border-0 mb-2">
+                                                    <li class="list-group-item">
+                                                        <div class="row gx-3 gx-lg-4">
+                                                            <div class="col">Online Orders</div>
+                                                            <div class="col-auto">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" id="titleswitch1">
+                                                                    <label class="form-check-label" for="titleswitch1"></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="row gx-3 gx-lg-4">
+                                                            <div class="col">Offline Orders</div>
+                                                            <div class="col-auto">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" id="titleswitch2" checked="">
+                                                                    <label class="form-check-label" for="titleswitch2"></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <div class="p-1">
+                                                    <div class="row gx-3 gx-lg-4">
+                                                        <div class="col"><button class="btn btn-link theme-red">Cancel</button></div>
+                                                        <div class="col-auto">
+                                                            <button class="btn btn-theme">Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn btn-link btn-square" data-bs-toggle="tooltip" data-bs-placement="top" id="stylise">
+                                            <i class="bi bi-life-preserver"></i>
+                                        </a>
+                                        <a href="https://adminuiux.com" target="_blank" class="btn btn-link btn-square" data-bs-toggle="tooltip" data-bs-placement="top">
+                                            <span class="bi bi-basket position-relative">
+                                                <span class="position-absolute top-0 start-100 p-1 bg-danger border border-light rounded-circle">
+                                                    <span class="visually-hidden">New alerts</span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- content -->
+                            <div class="container mt-3" id="main-content">
+
+                                <!-- content -->
+                                <div class="row gx-3 gx-lg-4">
+                                    <!-- summary blocks -->
+                                    <div class="col-6 col-md-6 col-lg-6 col-xxl-3">
+                                        <div class="card adminuiux-card mb-3 mb-lg-4 theme-blue">
+                                            <div class="card-body">
+                                                <div class="row gx-3 gx-lg-4 align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="position-relative">
+                                                            <div id="circleprogressblue" class="avatar avatar-60 rounded-circle"></div>
+                                                            <div class="avatar avatar-40 h5 bg-theme-1-subtle text-theme-1 rounded-circle position-absolute top-50 start-50 translate-middle">
+                                                                <i class="bi bi-cpu"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-9 col-md mt-3 mt-md-0">
+                                                        <p class="text-secondary small mb-1">Total Assets</p>
+                                                        <h5>$ 60.15 M</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-6 col-lg-6 col-xxl-3">
+                                        <div class="card adminuiux-card mb-3 mb-lg-4 theme-yellow">
+                                            <div class="card-body">
+                                                <div class="row gx-3 gx-lg-4 align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="position-relative">
+                                                            <div id="circleprogressyellow" class="avatar avatar-60 rounded-circle"></div>
+                                                            <div class="avatar avatar-40 h5 bg-theme-1-subtle text-theme-1 theme-yellow rounded-circle position-absolute top-50 start-50 translate-middle">
+                                                                <i class="bi bi-cash-stack"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-9 col-md mt-3 mt-md-0">
+                                                        <p class="text-secondary small mb-1">Total Revenue</p>
+                                                        <h5>$ 12.50 M</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-6 col-lg-6 col-xxl-3">
+                                        <div class="card adminuiux-card mb-3 mb-lg-4 theme-red">
+                                            <div class="card-body">
+                                                <div class="row gx-3 gx-lg-4 align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="position-relative">
+                                                            <div id="circleprogressred" class="avatar avatar-60 rounded-circle"></div>
+                                                            <div class="avatar avatar-40 h5 bg-theme-1-subtle text-theme-1 theme-red rounded-circle position-absolute start-50 top-50 translate-middle">
+                                                                <i class="bi bi-receipt"></i>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-9 col-md mt-3 mt-md-0">
+                                                        <p class="text-secondary small mb-1">Total Sales</p>
+                                                        <h5>$ 15.25 M</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-6 col-lg-6 col-xxl-3">
+                                        <div class="card adminuiux-card mb-3 mb-lg-4 theme-green">
+                                            <div class="card-body">
+                                                <div class="row gx-3 gx-lg-4 align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-60 h5 bg-theme-1-subtle text-theme-1 rounded-circle">
+                                                            <i class="bi bi-bag-check"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-9 col-md mt-3 mt-md-0">
+                                                        <p class="text-secondary small mb-1">Current Cart</p>
+                                                        <h5>$ 45.00 M</h5>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <div class="dropdown d-inline-block">
+                                                            <a class="text-secondary no-caret" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                                                                <i class="bi bi-three-dots-vertical"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row gx-3 gx-lg-4">
+                                    <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
+                                        <!-- Balance card -->
+                                        <div class="card adminuiux-card mb-3 mb-lg-4">
+                                            <div class="card-header">
+                                                <div class="row gx-3 gx-lg-4 align-items-center">
+                                                    <div class="col">
+                                                        <h6>
+                                                            <i class="bi bi-wallet2 h5 me-1 avatar avatar-40 bg-theme-1-subtle text-theme-1 rounded me-2"></i>
+                                                            Balance Summary
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h4>$ 4,021.05</h4>
+                                                <p class="text-secondary mb-1">Available Balance</p>
+                                                <p class="text-secondary small"><span class="fw-bold text-theme-1 theme-green"><i class="bi bi-arrow-up"></i> 1.8%</span> from last 28 days</p>
+                                            </div>
+                                        </div>
+                                        <!-- Performance card -->
+                                        <div class="card adminuiux-card mb-3 mb-lg-4">
+                                            <div class="card-header">
+                                                <div class="row gx-3 gx-lg-4 align-items-center">
+                                                    <div class="col">
+                                                        <h6>
+                                                            <i class="bi bi-graph-up-arrow h5 me-1 avatar avatar-40 bg-theme-1-subtle text-theme-1 rounded me-2"></i>
+                                                            Fund Performance
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h4>$ 15,021.05</h4>
+                                                <p class="text-secondary mb-1">Gain on investment</p>
+                                                <p class="text-secondary small"><span class="fw-bold text-theme-1 theme-green"><i class="bi bi-arrow-up"></i> 2.8%</span> from last 28 days</p>
+                                            </div>
+                                            <div class="height-110">
+                                                <canvas id="smallchart2"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-6 col-xxl-9">
+                                        <!-- Total performance card -->
+                                        <div class="card adminuiux-card mb-3 mb-lg-4">
+                                            <div class="card-header">
+                                                <div class="row gx-3 gx-lg-4 align-items-center">
+                                                    <div class="col">
+                                                        <h6>
+                                                            <i class="bi bi-bar-chart-line h5 me-1 avatar avatar-40 bg-theme-1-subtle text-theme-1 rounded me-2"></i>
+                                                            Investment Performance
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pb-0">
+                                                <div class="height-300 mb-3">
+                                                    <canvas id="performance-chart"></canvas>
+                                                </div>
+                                                <div class="row gx-3 gx-lg-4">
+                                                    <div class="col-12 col-md mb-4">
+                                                        <h4><span class="avatar avatar-20 rounded-circle align-middle me-2" style="background-color: rgba(16, 140, 242, 0.6);"></span> $ 4,521.00</h4>
+                                                        <p class="text-secondary mb-1">Fund Investment</p>
+                                                        <p class="text-secondary small"><span class="fw-bold text-theme-1 theme-green"><i class="bi bi-arrow-up"></i> 2.18%</span> vs. previous period</p>
+                                                    </div>
+                                                    <div class="col-12 col-md mb-4">
+                                                        <h4><span class="avatar avatar-20 rounded-circle align-middle me-2" style="background-color: rgba(16, 27, 242, 0.6);"></span> $ 7,700.00</h4>
+                                                        <p class="text-secondary mb-1">Total Deposit</p>
+                                                        <p class="text-secondary small"><span class="fw-bold text-theme-1 theme-red"><i class="bi bi-arrow-up"></i> - 0.15%</span> vs. previous period</p>
+                                                    </div>
+                                                    <div class="col-12 col-md mb-4">
+                                                        <h4><span class="avatar avatar-20 rounded-circle align-middle me-2" style="background-color: rgba(32, 190, 0, 1);"></span> $ 10,620.00</h4>
+                                                        <p class="text-secondary mb-1">Portfolio Value</p>
+                                                        <p class="text-secondary small"><span class="fw-bold text-theme-1 theme-green"><i class="bi bi-arrow-up"></i> 3.11%</span> vs. previous period</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row gx-3 gx-lg-4">
+                                    <div class="col-12 col-md-6 col-lg-6 col-xxl-3 mb-3 mb-lg-4">
+                                        <!-- finance card -->
+                                        <div class="card adminuiux-card overflow-hidden">
+                                            <div class="card-header">
+                                                <div class="row gx-3 gx-lg-4 align-items-center">
+                                                    <div class="col">
+                                                        <h6>
+                                                            <i class="bi bi-credit-card h5 me-1 avatar avatar-40 bg-theme-1-subtle text-theme-1 rounded me-2"></i>
+                                                            My Cards
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="swiper swipernav mb-1 overflow-visible">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide width-240">
+                                                            <div class="card adminuiux-card mb-2 theme-blue bg-theme-r-gradient overflow-hidden">
+                                                                <div class="coverimg top-0 start-0 h-100 w-100 position-absolute z-index-0 opacity-25">
+                                                                    <img src="{% static "img/modern-ai-image/peacoke-2.jpg" %}" alt="" style="display: none;">
+                                                                </div>
+                                                                <div class="card-body position-relative z-index-1">
+                                                                    <div class="row gx-3 align-items-center mb-4">
+                                                                        <div class="col-auto align-self-center">
+                                                                            <i class="bi bi-amazon fs-4"></i>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p class="fs-12">
+                                                                                <span class="opacity-50 small">City Bank</span><br>
+                                                                                <span class="">Credit Card</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="fw-medium h6 mb-3">
+                                                                        000 0000 0001 546598
+                                                                    </p>
+                                                                    <div class="row gx-3 gx-lg-4">
+                                                                        <div class="col-auto fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Expiry</p>
+                                                                            <p>09/023</p>
+                                                                        </div>
+                                                                        <div class="col text-end fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Card Holder</p>
+                                                                            <p>AdminUIUX</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row amount-data">
+                                                                <div class="col">
+                                                                    <p class="opacity-50 small mb-1">Expense</p>
+                                                                    <p>1500.00 <small class="text-success">18.0% <i class="bi bi-arrow-up"></i></small></p>
+                                                                </div>
+                                                                <div class="col-auto text-end">
+                                                                    <p class="opacity-50 small mb-1">Limit Remain</p>
+                                                                    <p>13500.00</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide width-240">
+                                                            <div class="card adminuiux-card theme-pink bg-theme-r-gradient mb-2 overflow-hidden">
+                                                                <div class="coverimg top-0 start-0 h-100 w-100 position-absolute z-index-0 opacity-25">
+                                                                    <img src="{% static "img/modern-ai-image/flamingo-2.jpg" %}" alt="" style="display: none;">
+                                                                </div>
+                                                                <div class="card-body position-relative z-index-1">
+                                                                    <div class="row gx-3 align-items-center mb-4">
+                                                                        <div class="col-auto align-self-center">
+                                                                            <i class="bi bi-apple fs-4"></i>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p class="fs-12">
+                                                                                <span class="opacity-50 small">City Bank</span><br>
+                                                                                <span class="">Credit Card</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="fw-medium h6 mb-3">
+                                                                        000 0000 0001 546598
+                                                                    </p>
+                                                                    <div class="row gx-3 gx-lg-4">
+                                                                        <div class="col-auto fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Expiry</p>
+                                                                            <p>09/023</p>
+                                                                        </div>
+                                                                        <div class="col text-end fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Card Holder</p>
+                                                                            <p>AdminUIUX</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row amount-data">
+                                                                <div class="col">
+                                                                    <p class="text-secondary small mb-1">Expense</p>
+                                                                    <p>3650.00 <small class="text-danger">11.0% <i class="bi bi-arrow-down"></i></small></p>
+                                                                </div>
+                                                                <div class="col-auto text-end">
+                                                                    <p class="text-secondary small mb-1">Limit Remain</p>
+                                                                    <p>35500.00</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide width-240">
+                                                            <div class="card adminuiux-card theme-yellow bg-r-gradient mb-2">
+                                                                <div class="card-body">
+                                                                    <div class="row gx-3 align-items-center mb-4">
+                                                                        <div class="col-auto align-self-center">
+                                                                            <i class="bi bi-amazon fs-4"></i>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p class="fs-12">
+                                                                                <span class="opacity-50 small">City Bank</span><br>
+                                                                                <span class="">Credit Card</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="fw-medium h6 mb-3">
+                                                                        000 0000 0001 546598
+                                                                    </p>
+                                                                    <div class="row gx-3 gx-lg-4">
+                                                                        <div class="col-auto fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Expiry</p>
+                                                                            <p>09/023</p>
+                                                                        </div>
+                                                                        <div class="col text-end fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Card Holder</p>
+                                                                            <p>AdminUIUX</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row amount-data">
+                                                                <div class="col">
+                                                                    <p class="text-secondary small mb-1">Expense</p>
+                                                                    <p>1500.00 <small class="text-success">18.0 <i class="bi bi-arrow-up"></i></small></p>
+                                                                </div>
+                                                                <div class="col-auto text-end">
+                                                                    <p class="text-secondary small mb-1">Limit Remain</p>
+                                                                    <p>13500.00</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-6 col-xxl">
+                                        <div class="card adminuiux-card mb-3 mb-lg-4">
+                                            <div class="card-header">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col-auto">
+                                                        <i class="bi bi-arrow-down-left h5 avatar avatar-40 bg-theme-1-subtle text-theme-1 theme-green rounded"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="mb-0">Income</h6>
+                                                        <p class="text-secondary small">Last 6 Months</p>
+                                                    </div>
+                                                    <div class="col-auto">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="mb-3">2,545.98 <small>USD <small class="text-theme-1 theme-green"><i class="bi bi-arrow-up"></i> 108.71 (0.73%)</small></small></h4>
+                                                <div class="w-100 height-180">
+                                                    <canvas id="mediumchartgreen1"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Expense red chart card -->
+                                    <div class="col-12 col-md-12 col-lg-6 col-xxl">
+                                        <div class="card adminuiux-card mb-3 mb-lg-4">
+                                            <div class="card-header">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col-auto">
+                                                        <i class="bi bi-arrow-up-right h5 avatar avatar-40 bg-theme-1-subtle text-theme-1 theme-red rounded"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="mb-0">Expense</h6>
+                                                        <p class="text-secondary small">Last 6 Months</p>
+                                                    </div>
+                                                    <div class="col-auto">
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4 class="mb-3">1245.98 <small>USD <small class="text-theme-1 theme-green"><i class="bi bi-arrow-up"></i> 200.51 (0.73%)</small></small></h4>
+                                                    <div class="w-100 height-180">
+                                                        <canvas id="mediumchartred1"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3 mb-lg-4 py-3">
+                                    <div class="col text-center">
+                                        <h4>Important <span class="text-gradient">News</span> around you</h4>
+                                        <p class="text-secondary">While you are working hard, we let you know important news.</p>
+                                    </div>
+                                </div>
+
+                                <div class="row gx-3 gx-lg-4">
+                                    <!-- news and offers -->
+                                    <div class="col-12 col-lg-12 col-xl-4 col-xxl-4 mb-3 mb-lg-4">
+                                        <div class="card adminuiux-card">
+                                            <div class="card-header">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col-auto">
+                                                        <i class="bi bi-newspaper h5 me-1 avatar avatar-40 bg-theme-1-subtle text-theme-1 rounded"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="mb-0">Great customization</h6>
+                                                        <p class="text-secondary small">Background with respective theme color</p>
+                                                    </div>
+                                                    <div class="col-auto">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="coverimg w-100 height-200 position-relative">
+                                                <div class="position-absolute bottom-0 start-0 w-100 mb-3 px-3 z-index-1">
+                                                    <div class="row gx-3 gx-lg-4">
+                                                        <div class="col">
+                                                            <button class="btn btn-sm btn-outline-light btn-rounded">Share this</button>
+                                                        </div>
+                                                        <div class="col-auto">
+
+                                                            <div class="dropup d-inline-block">
+                                                                <a class="btn btn-square btn-sm rounded-circle btn-outline-light no-caret" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                                </a>
+                                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                                    <li><a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-hand-thumbs-up me-1 text-theme-1 theme-green"></i> Recommendation this</a></li>
+                                                                    <li><a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-hand-thumbs-down me-1 text-danger"></i> Don't recommend</a></li>
+                                                                    <li><a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-star text-yellow"></i> Add to favorite</a></li>
+                                                                    <li><a class="dropdown-item text-danger" href="javascript:void(0)">Report this</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="{% static "img/background-image/backgorund-image-3.jpg" %}" class="mw-100" alt="" />
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="mb-3">We all are artist in our field. We all are able to find symmetry in our routine</h5>
+                                                <h6 class="fw-medium mb-2">Make it clutter free and create better world</h6>
+                                                <p class="text-secondary">We have added useful and wider-range of widgets fully flexible with wrapper container. If you still reading this, you are in love with this design. <a href="blog-4.html">Read more...</a> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-4 position-relative mb-3 mb-lg-4">
+                                        <!-- offer block-->
+                                        <div class="card adminuiux-card position-relative overflow-hidden mb-3 mb-lg-4">
+                                            <figure class="coverimg position-absolute w-100 h-100 start-0 top-0 m-0">
+                                                <img src="{% static "img/background-image/backgorund-image-10.jpg" %}" class="mw-100" alt="" />
+                                            </figure>
+                                            <div class="card-body bg-transparent z-index-1">
+                                                <div class="row gx-3 gx-lg-4">
+                                                    <div class="col-7">
+                                                        <div class="bg-theme-1 text-white text-center p-3 rounded">
+                                                            <h3 class="mb-3">15% OFF</h3>
+                                                            <p>Holiday Trip</p>
+                                                            <p class="opacity-50 small">Price including with our launch offer get 5% Extra</p>
+                                                            <button class="copy-text btn btn-sm btn-rounded btn-outline-dashed text-white border-white">GOWFAMILY</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card adminuiux-card overflow-hidden">
+                                            <div class="row mx-0">
+                                                <div class="col-6 pe-0 bg-theme-1 text-white half-circle-vertical text-center py-4 z-index-1">
+                                                    <div class="position-relative">
+                                                        <h3>15% OFF</h3>
+                                                        <p>Uberazia Taxi</p>
+                                                        <p class="opacity-50 small">Price including with our launch offer get 5% Extra</p>
+                                                        <button class="copy-text btn btn-sm btn-rounded btn-outline-dashed text-white border-white">GOREELLAUNCH</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 position-relative">
+                                                    <figure class="coverimg position-absolute w-100 h-100 start-0 top-0 m-0">
+                                                        <img src="{% static "img/modern-ai-image/tree-6.jpg" %}" class="mw-100" alt="" />
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-4 mb-3 mb-lg-4">
+                                        <!-- photo gallery view -->
+                                        <div class="card adminuiux-card overflow-hidden h-100">
+                                            <div class="card-header">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col-auto">
+                                                        <i class="bi bi-image h5 me-1 avatar avatar-40 bg-theme-1-subtle text-theme-1 theme-purple rounded"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="mb-0">Photo Gallery</h6>
+                                                        <p class="text-secondary small">Click image to see preview</p>
+                                                    </div>
+                                                    <div class="col-auto">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body p-0 spotlight-group">
+                                                <div class="row g-0 h-100">
+                                                    <div class="col-6 h-100">
+                                                        <div class="row h-100">
+                                                            <div class="col-12 h-50 position-relative overflow-hidden">
+                                                                <a href="{% static "img/background-image/backgorund-image-5.jpg" %}" class="coverimg position-absolute w-100 h-100 start-0 top-0 m-0 spotlight">
+                                                                    <img src="{% static "img/background-image/backgorund-image-5.jpg" %}" class="mw-100" alt="" title="Your business is your strength" />
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-12 h-50 position-relative overflow-hidden">
+                                                                <a href="{% static "img/background-image/backgorund-image-2.jpg" %}" class="coverimg position-absolute w-100 h-100 start-0 top-0 m-0 spotlight">
+                                                                    <img src="{% static "img/background-image/backgorund-image-2.jpg" %}" class="mw-100" alt="" title="Beautiful background image" />
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 h-100 position-relative overflow-hidden">
+                                                        <a href="{% static "img/modern-ai-image/user-1-kid.jpg" %}" class="coverimg position-absolute w-100 h-100 start-0 top-0 m-0 spotlight">
+                                                            <img src="{% static "img/modern-ai-image/user-1-kid.jpg" %}" class="mw-100" alt="" title="Love unconditional when it comes to your own" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row gx-3 gx-lg-4">
+                                    <!-- sort summary block -->
+                                    <div class="col-12 col-lg-12 col-xl-12 col-xxl-2 ">
+                                        <div class="row gx-3 gx-lg-4">
+                                            <div class="col-12 col-sm-6 col-md-6 col-xxl-12">
+                                                <div class="card adminuiux-card bg-theme-1 theme-green mb-3 mb-lg-4">
+                                                    <div class="card-header">
+                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                            <div class="col">
+                                                                <i class="bi bi-bank h5 me-1 avatar avatar-40 bg-white-opacity text-white rounded"></i>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body pt-0">
+                                                        <h5>Bank Balance</h5>
+                                                        <p class="small opacity-75 mb-0">4% Annual Interest</p>
+                                                        <p class="small opacity-75">6% Lease Earning</p>
+
+                                                        <h5>12546.00 <small>USD</small></h5>
+                                                        <p class="small opacity-75">16 transactions this month</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-md-6 col-xxl-12">
+                                                <div class="card adminuiux-card mb-3 mb-lg-4">
+                                                    <div class="card-header">
+                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                            <div class="col">
+                                                                <i class="bi bi-bank h5 me-1 avatar avatar-40 bg-theme-1-subtle text-theme-1 rounded"></i>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h5>Crypto Assets</h5>
+                                                        <p class="small text-secondary">8 Crypto</p>
+
+                                                        <h5>12580.00 <small>USD</small></h5>
+                                                        <p class="small text-theme-1 theme-green"><i class="bi bi-arrow-up"></i> 10.15% Today</p>
+                                                        <p class="small text-secondary">11 transactions this month</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-12 col-lg-12 col-xl-12 col-xxl-10 position-relative ">
+                                        <!-- Grid table-->
+                                        <div class="card adminuiux-card mb-3 mb-lg-4">
+                                            <div class="card-header">
+                                                <div class="row gx-3">
+                                                    <div class="col-auto mb-3 mb-lg-0">
+                                                        <i class="bi bi-shop h5 avatar avatar-40 bg-theme-1-subtle text-theme-1 rounded"></i>
+                                                    </div>
+                                                    <div class="col align-self-center mb-3 mb-lg-0">
+                                                        <h5>Expense</h5>
+                                                    </div>
+                                                    <div class="col-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 mb-3 mb-lg-0">
+                                                        <select class="form-select">
+                                                            <option>All Categories</option>
+                                                            <optgroup label="Food">
+                                                                <option>- Work</option>
+                                                                <option>- Home</option>
+                                                            </optgroup>
+                                                            <optgroup label="Children">
+                                                                <option>- Fees</option>
+                                                                <option>- Enjoyment</option>
+                                                            </optgroup>
+                                                            <optgroup label="Transportation">
+                                                                <option>- Personal</option>
+                                                                <option>- Work</option>
+                                                            </optgroup>
+                                                            <optgroup label="Home">
+                                                                <option>- Rent</option>
+                                                                <option>- Maintenance</option>
+                                                            </optgroup>
+                                                            <option>Personal</option>
+                                                            <option>Other</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-12 col-md-auto ms-auto mb-lg-0">
+                                                        <div class="input-group ">
+                                                            <span class="input-group-text text-theme-1"><i class="bi bi-search"></i></span>
+                                                            <input type="text" class="form-control" placeholder="Search...">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row gx-0 h-100">
+                                                <div class="col-12 col-lg-12 col-xl-8 col-xxl-8">
+                                                    <div class="card-body py-0">
+                                                        <table class="table table-borderless" id="dataTable" data-show-toggle="true">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="width-10"></th>
+                                                                    <th class="all">Expense</th>
+                                                                    <th class="xs">Amount</th>
+                                                                    <th class="desktop">Category</th>
+                                                                    {% comment %} <th class="tablet">Status</th> {% endcomment %}
+                                                                    {% comment %} <th class="none">Deliver to</th>
+                                                                    <th class="none">Address</th>
+                                                                    <th class="none">Location</th>
+                                                                    <th class="none">Payment</th> {% endcomment %}
+                                                                    <th class="all">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                                            <div class="col-auto">
+                                                                                <div class="avatar avatar-40 mb-0 coverimg rounded-circle bg-theme-1 theme-orange">
+                                                                                    <i class="bi bi-currency-bitcoin"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <p class="mb-0">BitCoins</p>
+                                                                                <p class="text-secondary small">1 way trip</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">0.000015</p>
+                                                                        <p class="text-secondary small">BTC</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">Traveling</p>
+                                                                        <p class="text-secondary small">Work</p>
+                                                                    </td>
+                                                                    {% comment %} <td>
+                                                                        <span class="badge badge-sm badge-light text-bg-success">Delivered</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        John Doe
+                                                                    </td>
+                                                                    <td>
+                                                                        2356, Street-5, New York 4586, US
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                                                        <p class="text-secondary small">This can be a map also</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge rounded-5 bg-green">Paid</span>
+                                                                    </td> {% endcomment %}
+                                                                    <td>
+                                                                        <div class="dropdown d-inline-block">
+                                                                            <a class="text-secondary no-caret" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                                                                <i class="bi bi-three-dots"></i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                                <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                                            <div class="col-auto">
+                                                                                <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                                                    <img src="{% static "img/modern-ai-image/tree-5.jpg" %}" alt="" />
+                                                                                </figure>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <p class="mb-0">Starbucks</p>
+                                                                                <p class="text-secondary small">2 Coffee</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">6.00</p>
+                                                                        <p class="text-secondary small">USD</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">Food</p>
+                                                                        <p class="text-secondary small">Work</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge badge-sm badge-light text-bg-success">Delivered</span>
+                                                                    </td>
+                                                                    {% comment %} <td>
+                                                                        John Doe
+                                                                    </td>
+                                                                    <td>
+                                                                        2356, Street-5, New York 4586, US
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                                                        <p class="text-secondary small">This can be a map also</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge rounded-5 bg-theme-1 theme-blue">Waiting</span>
+                                                                    </td> {% endcomment %}
+                                                                    <td>
+                                                                        <div class="dropdown d-inline-block">
+                                                                            <a class="text-secondary no-caret" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                                                                <i class="bi bi-three-dots"></i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                                <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                                            <div class="col-auto">
+                                                                                <div class="avatar avatar-40 mb-0 coverimg rounded-circle bg-theme-1 theme-green">
+                                                                                    <i class="bi bi-cup-hot"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <p class="mb-0">Starbucks</p>
+                                                                                <p class="text-secondary small">2 Coffee</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">6.00</p>
+                                                                        <p class="text-secondary small">USD</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">Food</p>
+                                                                        <p class="text-secondary small">Work</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge badge-sm badge-light text-bg-success">Delivered</span>
+                                                                    </td>
+                                                                    {% comment %} <td>
+                                                                        John Doe
+                                                                    </td>
+                                                                    <td>
+                                                                        2356, Street-5, New York 4586, US
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                                                        <p class="text-secondary small">This can be a map also</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge rounded-5 bg-theme-1 theme-blue">Waiting</span>
+                                                                    </td> {% endcomment %}
+                                                                    <td>
+                                                                        <div class="dropdown d-inline-block">
+                                                                            <a class="text-secondary no-caret" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                                                                <i class="bi bi-three-dots"></i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                                <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                                            <div class="col-auto">
+                                                                                <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                                                    <img src="{% static "img/modern-ai-image/pet-4.jpg" %}" alt="" />
+                                                                                </figure>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <p class="mb-0">PetMall</p>
+                                                                                <p class="text-secondary small">12 Items</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">180.00</p>
+                                                                        <p class="text-secondary small">USD</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">Grocery</p>
+                                                                        <p class="text-secondary small">Home</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge badge-sm badge-light text-bg-success">Delivered</span>
+                                                                    </td>
+                                                                    {% comment %} <td>
+                                                                        John Doe
+                                                                    </td>
+                                                                    <td>
+                                                                        2356, Street-5, New York 4586, US
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                                                        <p class="text-secondary small">This can be a map also</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge rounded-5 bg-red">Unpaid</span>
+                                                                    </td> {% endcomment %}
+                                                                    <td>
+                                                                        <div class="dropdown d-inline-block">
+                                                                            <a class="text-secondary no-caret" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                                                                <i class="bi bi-three-dots"></i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                                <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                                            <div class="col-auto">
+                                                                                <div class="avatar avatar-40 mb-0 coverimg rounded-circle bg-theme-1 theme-cyan">
+                                                                                    <i class="bi bi-basket"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <p class="mb-0">EasyMall</p>
+                                                                                <p class="text-secondary small">12 Items</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">180.00</p>
+                                                                        <p class="text-secondary small">USD</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">Grocery</p>
+                                                                        <p class="text-secondary small">Home</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge badge-sm badge-light text-bg-success">Delivered</span>
+                                                                    </td>
+                                                                    {% comment %} <td>
+                                                                        John Doe
+                                                                    </td>
+                                                                    <td>
+                                                                        2356, Street-5, New York 4586, US
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                                                        <p class="text-secondary small">This can be a map also</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge rounded-5 bg-red">Unpaid</span>
+                                                                    </td> {% endcomment %}
+                                                                    <td>
+                                                                        <div class="dropdown d-inline-block">
+                                                                            <a class="text-secondary no-caret" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                                                                <i class="bi bi-three-dots"></i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                                <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                                            <div class="col-auto">
+                                                                                <div class="avatar avatar-40 mb-0 coverimg rounded-circle bg-theme-1 theme-red">
+                                                                                    <i class="bi bi-flower1"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <p class="mb-0">Zomaatos</p>
+                                                                                <p class="text-secondary small">Meal</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">12.00</p>
+                                                                        <p class="text-secondary small">USD</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">Food</p>
+                                                                        <p class="text-secondary small">Work</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge badge-sm badge-light text-bg-success">Delivered</span>
+                                                                    </td>
+                                                                    {% comment %} <td>
+                                                                        John Doe
+                                                                    </td>
+                                                                    <td>
+                                                                        2356, Street-5, New York 4586, US
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                                                        <p class="text-secondary small">This can be a map also</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge rounded-5 bg-green">Paid</span>
+                                                                    </td> {% endcomment %}
+                                                                    <td>
+                                                                        <div class="dropdown d-inline-block">
+                                                                            <a class="text-secondary no-caret" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                                                                <i class="bi bi-three-dots"></i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                                <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                                            <div class="col-auto">
+                                                                                <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                                                    <img src="{% static "img/modern-ai-image/lion-2.jpg" %}" alt="" />
+                                                                                </figure>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <p class="mb-0">LeoCoin</p>
+                                                                                <p class="text-secondary small">1 way</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">0.000015</p>
+                                                                        <p class="text-secondary small">BTC</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">Traveling</p>
+                                                                        <p class="text-secondary small">Work</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge badge-sm badge-light text-bg-primary">In-Progress</span>
+                                                                    </td>
+                                                                    {% comment %} <td>
+                                                                        John Doe
+                                                                    </td>
+                                                                    <td>
+                                                                        2356, Street-5, New York 4586, US
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                                                        <p class="text-secondary small">This can be a map also</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge rounded-5 bg-green">Paid</span>
+                                                                    </td> {% endcomment %}
+                                                                    <td>
+                                                                        <div class="dropdown d-inline-block">
+                                                                            <a class="text-secondary no-caret" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                                                                <i class="bi bi-three-dots"></i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                                <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                                            <div class="col-auto">
+                                                                                <div class="avatar avatar-40 mb-0 coverimg rounded-circle bg-theme-1 theme-grey">
+                                                                                    <i class="bi bi-car-front"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <p class="mb-0">UserCars</p>
+                                                                                <p class="text-secondary small">Round Trip</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">251.00</p>
+                                                                        <p class="text-secondary small">USD</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">Travelling</p>
+                                                                        <p class="text-secondary small">Home</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge badge-sm badge-light text-bg-success">Delivered</span>
+                                                                    </td>
+                                                                    {% comment %} <td>
+                                                                        John Doe
+                                                                    </td>
+                                                                    <td>
+                                                                        2356, Street-5, New York 4586, US
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                                                        <p class="text-secondary small">This can be a map also</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge rounded-5 bg-theme-1 theme-blue">Waiting</span>
+                                                                    </td> {% endcomment %}
+                                                                    <td>
+                                                                        <div class="dropdown d-inline-block">
+                                                                            <a class="text-secondary no-caret" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                                                                <i class="bi bi-three-dots"></i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                                <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                                            <div class="col-auto">
+                                                                                <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                                                    <img src="{% static "img/modern-ai-image/bus-7.jpg" %}" alt="" />
+                                                                                </figure>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <p class="mb-0">Bus Service</p>
+                                                                                <p class="text-secondary small">Round Trip</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">251.00</p>
+                                                                        <p class="text-secondary small">USD</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">Travelling</p>
+                                                                        <p class="text-secondary small">Home</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge badge-sm badge-light text-bg-theme-1 theme-orange">Pending</span>
+                                                                    </td>
+                                                                    {% comment %} <td>
+                                                                        John Doe
+                                                                    </td>
+                                                                    <td>
+                                                                        2356, Street-5, New York 4586, US
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                                                        <p class="text-secondary small">This can be a map also</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge rounded-5 bg-theme-1 theme-blue">Waiting</span>
+                                                                    </td> {% endcomment %}
+                                                                    <td>
+                                                                        <div class="dropdown d-inline-block">
+                                                                            <a class="text-secondary no-caret" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                                                                <i class="bi bi-three-dots"></i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                                <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <div class="row gx-3 gx-lg-4 align-items-center">
+                                                                            <div class="col-auto">
+                                                                                <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                                                    <img src="{% static "img/modern-ai-image/taxi-1.jpg" %}" alt="" />
+                                                                                </figure>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <p class="mb-0">Zomaatos</p>
+                                                                                <p class="text-secondary small">Meal</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">12.00</p>
+                                                                        <p class="text-secondary small">USD</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-0">Food</p>
+                                                                        <p class="text-secondary small">Work</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge badge-sm badge-light text-bg-success">Delivered</span>
+                                                                    </td>
+                                                                    {% comment %} <td>
+                                                                        John Doe
+                                                                    </td>
+                                                                    <td>
+                                                                        2356, Street-5, New York 4586, US
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                                                        <p class="text-secondary small">This can be a map also</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge rounded-5 bg-green">Paid</span>
+                                                                    </td> {% endcomment %}
+                                                                    <td>
+                                                                        <div class="dropdown d-inline-block">
+                                                                            <a class="text-secondary no-caret" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                                                                <i class="bi bi-three-dots"></i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                                                                <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                                                <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-12 col-xl-4 col-xxl-4 overflow-hidden">
+                                                    <div class="card-body py-0">
+                                                        <div class="row h-100">
+                                                            <div class="col-12 text-center">
+                                                                <div class="width-240 my-3 my-lg-4 position-relative mx-auto">
+                                                                    <canvas id="doughnutchart"></canvas>
+                                                                    <div class="bg-white avatar avatar-190 rounded-circle shadow position-absolute top-50 start-50 translate-middle z-index-1">
+                                                                        <div class="w-100 lh-20">
+                                                                            <h4 class="mb-1">2,55.98K</h4>
+                                                                            <p class="text-theme-1 theme-green">18.71 (0.73%)</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 position-relative">
+                                                                <div class="swiper swipernav mb-3 mb-lg-4 overflow-visible">
+                                                                    <div class="swiper-wrapper">
+                                                                        <div class="swiper-slide w-50">
+                                                                            <div class="row gx-3">
+                                                                                <div class="col-auto">
+                                                                                    <span class="avatar avatar-50 bg-theme-1 theme-green rounded">
+                                                                                        <i class="bi bi-truck h5"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <h5 class="mb-1">120 <small>USD</small></h5>
+                                                                                    <p class="text-secondary small">Transport</p>
+                                                                                </div>
+                                                                                <div class="col-12 mt-2">
+                                                                                    <div class="row gx-2">
+                                                                                        <div class="col-4">
+                                                                                            <p class="text-secondary small">Home</p>
+                                                                                        </div>
+                                                                                        <div class="col-8">
+                                                                                            <p class="text-theme-1 theme-green small">8.30 %</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row gx-2">
+                                                                                        <div class="col-4">
+                                                                                            <p class="text-secondary small">Work</p>
+                                                                                        </div>
+                                                                                        <div class="col-8">
+                                                                                            <p class="text-theme-1 theme-green small">2.65 %</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="swiper-slide w-50">
+                                                                            <div class="row gx-3">
+                                                                                <div class="col-auto">
+                                                                                    <span class="avatar avatar-50 bg-theme-1 theme-yellow rounded">
+                                                                                        <i class="bi bi-egg-fried h5"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <h5 class="mb-1">168 <small>USD</small></h5>
+                                                                                    <p class="text-secondary small">Food</p>
+                                                                                </div>
+                                                                                <div class="col-12 mt-2">
+                                                                                    <div class="row gx-2">
+                                                                                        <div class="col-4">
+                                                                                            <p class="text-secondary small">Home</p>
+                                                                                        </div>
+                                                                                        <div class="col-8">
+                                                                                            <p class="text-theme-1 theme-green small">5.30 %</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row gx-2">
+                                                                                        <div class="col-4">
+                                                                                            <p class="text-secondary small">Work</p>
+                                                                                        </div>
+                                                                                        <div class="col-8">
+                                                                                            <p class="text-theme-1 theme-red small">2.00 %</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="swiper-slide w-50">
+                                                                            <div class="row gx-3">
+                                                                                <div class="col-auto">
+                                                                                    <span class="avatar avatar-50  bg-theme-1 theme-red rounded">
+                                                                                        <i class="bi bi-person h5"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <h5 class="mb-1">200 <small>USD</small></h5>
+                                                                                    <p class="text-secondary small">Children</p>
+                                                                                </div>
+                                                                                <div class="col-12 mt-2">
+                                                                                    <div class="row gx-2">
+                                                                                        <div class="col-6">
+                                                                                            <p class="text-secondary small">Fees</p>
+                                                                                        </div>
+                                                                                        <div class="col-6">
+                                                                                            <p class="text-theme-1 theme-green small">530 USD</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row gx-2">
+                                                                                        <div class="col-6">
+                                                                                            <p class="text-secondary small">Enjoyment</p>
+                                                                                        </div>
+                                                                                        <div class="col-6">
+                                                                                            <p class="text-theme-1 theme-red small">10.00 %</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                </div>
+                <div class="toast-container position-fixed bottom-0 end-0 p-2">
+                    <div id="liveToast1" class="toast" data-bs-delay="4500" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <img src="{% static "img/favicon.png" %}" class="rounded me-2" alt="...">
+                            <strong class="me-auto">Wealthuiux</strong>
+                            <small>10 sec ago</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            Hello, Beautiful people from Earth!<br /> Next toast message will appear with good message at the top right.
+                        </div>
+                    </div>
+                </div>
+                <div class="toast-container position-fixed top-0 end-0 p-2">
+                    <div id="liveToast2" class="toast" data-bs-delay="3500" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <img src="{% static "img/favicon.png" %}" class="rounded me-2" alt="...">
+                            <strong class="me-auto">Wealthuiux</strong>
+                            <small>10 sec ago</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            We are here to create amazing things ❤️.<br>Hope. you'll like it and share it.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- notification -->
+ {% include "components/offcanvas/notification.html"  %}
+                    <!-- themes -->
+     
+ {% include "components/offcanvas/theming.html"  %}
+                        <!-- footer -->
+                
+ {% include "components/footer/adminuiux-auth-footer.html"  %}
+                            <!-- Page Level js -->
+        
+        <script src="{% static 'js/adminuiux/adminuiux-dashboard.js' %}"></script>
+{% endblock content %}

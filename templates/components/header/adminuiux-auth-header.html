@@ -1,0 +1,23 @@
+<!-- standard header -->
+ {% load static %}
+<header class="adminuiux-header">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <!-- logo -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img data-bs-img="light" src="{% static "img/logo.png" %}" alt="">
+                <img data-bs-img="dark" src="{% static "img/logo.png" %}" alt="">
+                {% comment %} <div class="d-block ps-2">
+                    <span class="h4">Wealth<span class="fw-bold">UIUX</span></span>
+                    <p class="company-tagline">Best HTML template</p>
+                </div> {% endcomment %}
+            </a>
+
+            <!-- right icons button -->
+            <div class="ms-auto">
+
+            </div>
+        </div>
+    </nav>
+</header>

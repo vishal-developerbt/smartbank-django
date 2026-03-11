@@ -1,0 +1,46 @@
+  {% load static %}
+<!-- standard header -->
+<header class="adminuiux-header inner-page">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <!-- logo -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img data-bs-img="light" src="{% static "img/logo.png" %}" alt="">
+                <img data-bs-img="dark" src="{% static "img/logo.png" %}" alt="">
+                <div class="">
+                    <span class="h4">Wealth<span class="fw-bold">UIUX</span></span>
+                    <p class="company-tagline">Best HTML template</p>
+                </div>
+            </a>
+
+            <div class="collapse navbar-collapse justify-content-center" id="header-navbar">
+                <ul class="navbar-nav mx-lg-3 mb-2 mb-md-0 ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminuiux-dashboard.html">WealthUIUX</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="components.html" aria-current="page">Components</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="documentation.html">Documentation</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class=" ms-auto "></div>
+            <!-- right icons button -->
+            <div class="ms-auto">
+                <!-- dark mode -->
+                <button class="btn btn-link btn-square btnsunmoon btn-link-header" id="btn-layout-modes-dark-page">
+                    <i class="sun mx-auto" data-feather="sun"></i>
+                    <i class="moon mx-auto" data-feather="moon"></i>
+                </button>
+                <!-- Buy now -->
+                <a href="https://adminuiux.com" class="btn btn-theme btn-link-header">
+                    Download
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>

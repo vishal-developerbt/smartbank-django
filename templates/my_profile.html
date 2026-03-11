@@ -1,0 +1,483 @@
+{% extends 'base.html' %}
+ {% load static %}
+{% block content %}
+
+    {% include "components/header/adminuiux-header.html" %}
+                <div class="adminuiux-wrap">
+
+                    <!-- Standard sidebar -->
+                     {% include "components/navigation/adminuiux-sidebar.html"  %}
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- page title -->
+                            <div class="container-fluid py-3">
+                                <div class="row align-items-center page-title">
+                                    <div class="col col-sm mb-3 mb-sm-0 order-1">
+                                        <h5 class="mb-0">My Profile</h5>
+                                        <p class="text-secondary small">Checkout personal and plan details</p>
+                                    </div>
+
+                                    <div class="col-auto ps-0 position-relative order-2 order-sm-3 mb-3 mb-sm-0">
+                                        <div class="dropdown d-inline-block">
+                                            <a class="btn btn-link btn-square no-caret dropdown-toggle" href="#" role="button" id="filterintitle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                                <i class="bi bi-filter"></i>
+                                            </a>
+                                            <div class="dropdown-menu width-300" aria-labelledby="filterintitle">
+                                                <div class="p-1 mb-2">
+                                                    <div class="input-group input-group-md rounded" style="--mw-dynamic:232px">
+                                                        <span class="input-group-text text-theme-1"><i class="bi bi-box"></i></span>
+                                                        <select class="form-control choices" id="titltfilterlist" multiple>
+                                                            <option value="San Francisco">San Francisco</option>
+                                                            <option value="New York">New York</option>
+                                                            <option value="London">London</option>
+                                                            <option value="Chicago">Chicago</option>
+                                                            <option value="India" selected="">India</option>
+                                                            <option value="Sydney">Sydney</option>
+                                                            <option value="Seattle">Seattle</option>
+                                                            <option value="Los Angeles">Los Angeles</option>
+                                                            <option value="Indonesia">Indonesia</option>
+                                                            <option value="Los Angeles">Los Angeles</option>
+                                                            <option value="Chicago">Chicago</option>
+                                                            <option value="India">India</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="invalid-feedback">You have already selected maximum option allowed. (This is Configurable)</div>
+                                                </div>
+                                                <div class="p-1">
+                                                    <h6 class="mb-0">Orders:</h6>
+                                                    <p class="text-secondary small">1256 orders last week</p>
+                                                </div>
+                                                <ul class="list-group list-group-flush bg-transparent border-0 mb-2">
+                                                    <li class="list-group-item">
+                                                        <div class="row gx-3 gx-lg-4">
+                                                            <div class="col">Online Orders</div>
+                                                            <div class="col-auto">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" id="titleswitch1">
+                                                                    <label class="form-check-label" for="titleswitch1"></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="row gx-3 gx-lg-4">
+                                                            <div class="col">Offline Orders</div>
+                                                            <div class="col-auto">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" id="titleswitch2" checked="">
+                                                                    <label class="form-check-label" for="titleswitch2"></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <div class="p-1">
+                                                    <div class="row gx-3 gx-lg-4">
+                                                        <div class="col"><button class="btn btn-link theme-red">Cancel</button></div>
+                                                        <div class="col-auto">
+                                                            <button class="btn btn-theme">Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn btn-link btn-square" data-bs-toggle="tooltip" data-bs-placement="top" id="stylise">
+                                            <i class="bi bi-life-preserver"></i>
+                                        </a>
+                                        <a href="https://adminuiux.com" target="_blank" class="btn btn-link btn-square" data-bs-toggle="tooltip" data-bs-placement="top">
+                                            <span class="bi bi-basket position-relative">
+                                                <span class="position-absolute top-0 start-100 p-1 bg-danger border border-light rounded-circle">
+                                                    <span class="visually-hidden">New alerts</span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a href="adminuiux-account-setting.html" class="btn btn-theme ms-2"><i class="bi bi-gear"></i> Edit</a>
+                                    </div>
+                                </div>
+                                <nav aria-label="breadcrumb" class="breadcrumb-theme mt-3 rounded">
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item bi"><a href="adminuiux-dashboard.html"><i class="bi bi-house-door me-2"></i> WealthUIUX</a></li>
+                                        <li class="breadcrumb-item bi active" aria-current="page"> My Profile</li>
+                                    </ol>
+                                </nav>
+                            </div>
+
+                            <!-- content -->
+                            <div class="container mt-3" id="main-content">
+
+                                <!-- welcome bar -->
+                                <div class="row gx-3 align-self-center ">
+                                    <!-- welcome message -->
+                                    <div class="col-12 col-sm mb-3 mb-lg-4">
+                                        <p class="h2 fw-normal mb-0">Welcome to your account,</p>
+                                        <h1 class="display-3 fw-medium"><span class="text-gradient">Wealthuiux</span></h1>
+                                    </div>
+
+                                    <!-- rank and progress -->
+                                    <div class="col-auto ml-auto align-self-center mb-3 mb-lg-4">
+                                        <div class="row gx-3 gx-lg-4 align-self-center text-nowrap">
+                                            <div class="col col-md col-lg-auto text-center">
+                                                <i class="bi bi-trophy h5 avatar avatar-50 bg-theme-r-gradient theme-orange text-white rounded-circle mb-2"></i>
+                                                <h3 class="increamentcount mb-0">2586</h3>
+                                                <p class="small text-secondary">Level 3</p>
+                                            </div>
+                                            <div class="col col-md col-lg-auto text-center">
+                                                <i class="bi bi-award h5 avatar avatar-50 bg-theme-r-gradient theme-green text-white rounded-circle mb-2"></i>
+                                                <h3 class="increamentcount mb-0">1583</h3>
+                                                <p class="small text-secondary">Your Rank</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row gx-3 gx-lg-4">
+                                    <div class="col-12 col-lg-5 col-xl-4">
+
+                                        <!-- profile details -->
+                                        <div class="card adminuiux-card mb-3 mb-lg-4 overflow-hidden">
+                                            <figure class="height-150 w-100 coverimg z-index-0 blur-overlay blur-theme">
+                                                <img src="{{ customer.avatar.url }}" alt="" />
+                                            </figure>
+
+                                            <div class="card-body pt-0">
+                                                <div class="mt--100 text-center position-relative z-index-0 mb-3 mb-lg-4">
+                                                    <figure class="avatar avatar-180 coverimg rounded-circle mx-auto z-index-1">
+                                                        <img src="{{ customer.avatar.url }}" alt="" />
+                                                    </figure>
+                                                </div>
+                                                <p class="text-secondary mb-2"><i class="bi bi-people me-2 align-middle text-theme-1"></i> <span class="align-middle">{{customer.name}}</span></p>
+                                                <p class="text-secondary mb-2"><i class="bi bi-question-circle me-2 align-middle text-theme-1"></i> <span class="align-middle">{{customer.email}}</span></p>
+                                                <p class="text-secondary mb-2"><i class="bi bi-telephone me-2 align-middle text-theme-1"></i> <span class="align-middle">+91 {{customer.phone}}</span></p>
+                                                <p class="text-secondary mb-2"><i class="bi bi-cake me-2 align-middle text-theme-1"></i> <span class="align-middle">{{customer.dob}}</span></p>
+                                                <p class="text-secondary mb-2"><i class="bi bi-calendar-event me-2 align-middle text-theme-1"></i> <span class="align-middle">Member since 2023</span></p>
+                                                <p class="text-secondary d-flex"><i class="bi bi-geo-alt me-2 align-middle text-theme-1"></i> <span class="align-middle">{{customer.address}}</span></p>
+                                            </div>
+                                            <div class="card-footer justify-content-center text-center">
+                                                <a href="{% url 'customer_update_profile_page' %}" class="btn btn-link"><i class="bi bi-gear"></i> Update Profile</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- payment method -->
+                                        <div class="card adminuiux-card mb-3 mb-lg-4">
+                                            <div class="card-header">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col-auto">
+                                                        <i class="bi bi-credit-card h5 me-1 avatar avatar-40 bg-theme-1-subtle text-theme-1 theme-green rounded"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="fw-medium mb-0">Payment Method</h6>
+                                                        <p class="text-secondary small">1 card saved</p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <a href="" class="btn btn-square btn-sm btn-link"><i class="bi bi-plus-lg"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pb-0">
+
+                                                <!-- Credit cards carousel card -->
+                                                <div class="swiper swipernav">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide width-240">
+                                                            <div class="card adminuiux-card mb-2 theme-blue bg-theme-r-gradient overflow-hidden">
+                                                                <div class="coverimg top-0 start-0 h-100 w-100 position-absolute z-index-0 opacity-25">
+                                                                    <img src="{% static "img/modern-ai-image/peacoke-2.jpg" %}" alt="">
+                                                                </div>
+                                                                <div class="card-body position-relative z-index-1">
+                                                                    <div class="row gx-3 align-items-center mb-4">
+                                                                        <div class="col-auto align-self-center">
+                                                                            <i class="bi bi-amazon fs-4"></i>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p class="fs-12">
+                                                                                <span class="opacity-50 small">City Bank</span><br>
+                                                                                <span class="">Credit Card</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="fw-medium h6 mb-3">
+                                                                        000 0000 0001 546598
+                                                                    </p>
+                                                                    <div class="row gx-3 gx-lg-4">
+                                                                        <div class="col-auto fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Expiry</p>
+                                                                            <p>09/023</p>
+                                                                        </div>
+                                                                        <div class="col text-end fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Card Holder</p>
+                                                                            <p>AdminUIUX</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row gx-3 mb-3">
+                                                                <div class="col">
+                                                                    <p class="opacity-50 small mb-1">Expense</p>
+                                                                    <h6>1500.00 <small class="text-success">18.0% <i class="bi bi-arrow-up"></i></small></h6>
+                                                                </div>
+                                                                <div class="col-auto text-end">
+                                                                    <p class="opacity-50 small mb-1">Limit Remain</p>
+                                                                    <h6>13500.00</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide width-240">
+                                                            <div class="card adminuiux-card theme-pink bg-theme-r-gradient mb-2 overflow-hidden">
+                                                                <div class="coverimg top-0 start-0 h-100 w-100 position-absolute z-index-0 opacity-25">
+                                                                    <img src="{% static "img/modern-ai-image/flamingo-2.jpg" %}" alt="">
+                                                                </div>
+                                                                <div class="card-body position-relative z-index-1">
+                                                                    <div class="row gx-3 align-items-center mb-4">
+                                                                        <div class="col-auto align-self-center">
+                                                                            <i class="bi bi-apple fs-4"></i>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p class="fs-12">
+                                                                                <span class="opacity-50 small">City Bank</span><br>
+                                                                                <span class="">Credit Card</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="fw-medium h6 mb-3">
+                                                                        000 0000 0001 546598
+                                                                    </p>
+                                                                    <div class="row gx-3 gx-lg-4">
+                                                                        <div class="col-auto fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Expiry</p>
+                                                                            <p>09/023</p>
+                                                                        </div>
+                                                                        <div class="col text-end fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Card Holder</p>
+                                                                            <p>AdminUIUX</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row gx-3 mb-3">
+                                                                <div class="col">
+                                                                    <p class="text-secondary small mb-1">Expense</p>
+                                                                    <h6>3650.00 <small class="text-danger">11.0% <i class="bi bi-arrow-down"></i></small></h6>
+                                                                </div>
+                                                                <div class="col-auto text-end">
+                                                                    <p class="text-secondary small mb-1">Limit Remain</p>
+                                                                    <h6>35500.00</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide width-240">
+                                                            <div class="card adminuiux-card theme-yellow bg-r-gradient mb-2">
+                                                                <div class="card-body">
+                                                                    <div class="row gx-3 align-items-center mb-4">
+                                                                        <div class="col-auto align-self-center">
+                                                                            <i class="bi bi-amazon fs-4"></i>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p class="fs-12">
+                                                                                <span class="opacity-50 small">City Bank</span><br>
+                                                                                <span class="">Credit Card</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="fw-medium h6 mb-3">
+                                                                        000 0000 0001 546598
+                                                                    </p>
+                                                                    <div class="row gx-3 gx-lg-4">
+                                                                        <div class="col-auto fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Expiry</p>
+                                                                            <p>09/023</p>
+                                                                        </div>
+                                                                        <div class="col text-end fs-12">
+                                                                            <p class="mb-0 opacity-50 small">Card Holder</p>
+                                                                            <p>AdminUIUX</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row gx-3 mb-3">
+                                                                <div class="col">
+                                                                    <p class="text-secondary small mb-1">Expense</p>
+                                                                    <h6>1500.00 <small class="text-success">18.0 <i class="bi bi-arrow-up"></i></small></h6>
+                                                                </div>
+                                                                <div class="col-auto text-end">
+                                                                    <p class="text-secondary small mb-1">Limit Remain</p>
+                                                                    <h6>13500.00</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-7 col-xl-8">
+
+                                        <!-- alert -->
+                                        <div class="alert alert-info alert-dismissible mb-3 mb-lg-4" role="alert">
+                                            <button type="button" class="btn btn-square btn-sm btn-link position-absolute top-0 end-0 m-2" data-bs-dismiss="alert"><i class="bi bi-x-lg"></i></button>
+                                            <div class="row gx-3 align-items-center mb-3">
+                                                <div class="col-auto">
+                                                    <i class="bi bi-telephone-plus h4 me-1 avatar avatar-40 rounded"></i>
+                                                </div>
+                                                <div class="col">
+                                                    <h6>Add a phone number</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row gx-3 align-items-center">
+                                                <div class="col-12 col-sm">
+                                                    <p>Ensure you never lose access to your account and receive important account updates like billing and security alerts.</p>
+                                                </div>
+                                                <div class="col-auto col-sm-auto">
+                                                    <a href="adminuiux-account-setting.html" class="btn btn-sm btn-theme my-2">Add Phone</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- overview -->
+                                        <div class="card adminuiux-card mb-3 mb-lg-4">
+                                            <div class="card-header">
+                                                <h6 class="mb-0">Profile Overview</h6>
+                                                <p class="text-secondary small"><i class="bi bi-eye me-1"></i> Visible to you only</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row gx-3">
+                                                    <div class="col-12 col-md-12 col-xxl-4 mb-3 mb-xxl-0">
+                                                        <div class="row gx-3 align-items-center">
+                                                            <div class="col-auto">
+                                                                <i class="bi bi-people avatar avatar-40 h5 bg-theme-1-subtle text-theme-1 rounded"></i>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h5 class="mb-0">36 <small>Profile views</small></h5>
+                                                                <p class="text-secondary small">Your profile visitor</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-12 col-xxl-4 mb-3 mb-xxl-0">
+                                                        <div class="row gx-3 align-items-center">
+                                                            <div class="col-auto">
+                                                                <i class="bi bi-bar-chart avatar avatar-40 h5 bg-theme-1-subtle text-theme-1 rounded"></i>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h5 class="mb-0">54 <small class="text-theme-1 theme-green"><i class="bi bi-arrow-uo"></i> 5.65%</small> <small>interaction</small> </h5>
+                                                                <p class="text-secondary small">Your posts are getting hits</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-12 col-xxl-4 mb-3 mb-lg-0">
+                                                        <div class="row gx-3 align-items-center">
+                                                            <div class="col-auto">
+                                                                <i class="bi bi-search avatar avatar-40 h5 bg-theme-1-subtle text-theme-1 rounded"></i>
+                                                            </div>
+                                                            <div class="col">
+                                                                <h5 class="mb-0">144 <small>Search appearance</small></h5>
+                                                                <p class="text-secondary small">You are in search result</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- background -->
+                                        <div class="card adminuiux-card mb-3 mb-lg-4">
+                                            <div class="card-header">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col-auto">
+                                                        <i class="bi bi-briefcase h5 me-1 avatar avatar-40 bg-theme-1-subtle text-theme-1 rounded "></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="mb-0">Experience</h6>
+                                                        <p class="text-secondary small">Currently working</p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <button class="btn btn-link btn-sm"><i class="bi bi-plus fs-6 me-2"></i><span>Add</span> <span class="d-none d-md-inline-block">New Role</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pb-0">
+                                                <div class="row gx-3 mb-4">
+                                                    <div class="col-auto">
+                                                        <figure class="avatar avatar-40 rounded coverimg">
+                                                            <img src="{% static "img/logo-512.png" %}" alt="">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="mb-1">Creative UI/UX Designer at <a href="https://adminuiux.com">Wealthuiux</a>, London, UK</h6>
+                                                        <p class="small text-secondary">July 2013 - Present, 9 years 2 months</p>
+                                                        <p class="text-secondary">We are working in good company with reputed online presence and there are multi-disciplinary designers are available to give creative works.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row gx-3 mb-4">
+                                                    <div class="col-auto">
+                                                        <figure class="avatar-40 avatar rounded coverimg">
+                                                            <img src="{% static "img/modern-ai-image/company7.jpg" %}" alt="">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="mb-1">Creative Designer at <a href="https://adminuiux.com">Micro Window</a>, Tipura, IN</h6>
+                                                        <p class="small text-secondary">July 2012 - 2013, 1 years 1 month</p>
+                                                        <p class="text-secondary">We are working in good company with reputed online presence and there are multi-disciplinary designers are available to give creative works.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- education -->
+                                        <div class="card adminuiux-card mb-3 mb-lg-4">
+                                            <div class="card-header">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col-auto">
+                                                        <i class="bi bi-briefcase h5 me-1 avatar avatar-40 bg-theme-1-subtle text-theme-1 rounded "></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="mb-0">Education</h6>
+                                                        <p class="text-secondary small">Strong foundation</p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <button class="btn btn-link btn-sm"><i class="bi bi-plus fs-6 me-2"></i><span>Add</span> <span class="d-none d-md-inline-block">New Education</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pb-0">
+                                                <div class="row gx-3 mb-4">
+                                                    <div class="col-auto">
+                                                        <figure class="avatar-40 avatar rounded coverimg">
+                                                            <img src="{% static "img/modern-ai-image/team-sq-2.jpg" %}" alt="">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="mb-1">M.Tech from <a href="https://adminuiux.com">London bridge University</a>, London, UK</h6>
+                                                        <p class="small text-secondary">July 2010 - July 2012, 3 years</p>
+                                                        <p class="text-secondary">This helped me a strong base to build my career and i always recommended to all people to must visit and study at University.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row gx-3 mb-4">
+                                                    <div class="col-auto">
+                                                        <figure class="avatar-40 avatar rounded coverimg">
+                                                            <img src="{% static "img/modern-ai-image/user-3.jpg" %}" alt="">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="mb-1">LifeTime Learning at <a href="https://adminuiux.com">Google Search</a>, Online remote</h6>
+                                                        <p class="small text-secondary">July 2008 - Present, 24 years and counting</p>
+                                                        <p class="text-secondary">Its been pleasure to mention that every student learned many things from online and most helpful finger tip resource available at google search and we thank you for all of help and support and improvement provided for us. You should try this and hope to have great learning.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                </div>
+
+                <!-- notification -->
+               {% include "components/offcanvas/notification.html"  %}
+                <!-- themes -->
+                {% include "components/offcanvas/theming.html"  %}
+                <!-- footer -->
+                {% include "components/footer/adminuiux-auth-footer.html"  %}
+
+{% endblock content %}

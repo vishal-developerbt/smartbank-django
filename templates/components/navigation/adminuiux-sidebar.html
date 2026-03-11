@@ -1,0 +1,154 @@
+<!-- Standard sidebar -->
+<div class="adminuiux-sidebar">
+    <div class="adminuiux-sidebar-inner">
+
+        <!-- user menu navigation -->
+        <ul class="nav flex-column menu-active-line mt-3">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'dashboard' %}">
+                    <i class="menu-icon bi bi-house-door"></i>
+                    <div class="col menu-name">Home</div>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'personalization' %}" class="nav-link">
+                    <i class="menu-icon bi bi-palette h4"></i>
+                    <span class="menu-name">Personalize <small class="fs-12">❤️</small></span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- user secondary menu navigation -->
+        <div class="px-3 not-iconic">
+            <h6>Pages</h6>
+        </div>
+        <ul class="nav flex-column menu-active-line">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                    <i class="menu-icon bi bi-person-circle"></i>
+                    <div class="col menu-name">Profile</div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'customer_profile_page' %}">
+                            <i class="menu-icon bi bi-briefcase"></i>
+                            <div class="col align-self-center menu-name">My Profile</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'customer_update_profile_page' %}">
+                            <i class="menu-icon bi bi-gear"></i>
+                            <div class="col align-self-center menu-name">Settings</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                    <i class="menu-icon bi bi-window-stack"></i>
+                    <div class="col menu-name">Accounts</div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'customer_account_list' %}">
+                            <i class="menu-icon bi bi-person"></i>
+                            <div class="col align-self-center menu-name">My Account List</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_customer_account' %}">
+                            <i class="menu-icon bi bi-person"></i>
+                            <div class="col align-self-center menu-name">Create Account Request</div>
+                        </a>
+                    </li>
+                    
+                    {% comment %} <li class="nav-item">
+                        <a class="nav-link" href="adminuiux-signup.html" target="_blank">
+                            <i class="menu-icon bi bi-person-plus"></i>
+                            <div class="col align-self-center menu-name">Sign up</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminuiux-forgot-password.html" target="_blank">
+                            <i class="menu-icon bi bi-key"></i>
+                            <div class="col align-self-center menu-name">Forgot Password</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminuiux-change-password.html" target="_blank">
+                            <i class="menu-icon bi bi-key"></i>
+                            <div class="col align-self-center menu-name">Change Password</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminuiux-maintenance.html" target="_blank">
+                            <i class="menu-icon bi bi-gear"></i>
+                            <div class="col align-self-center menu-name">Maintenance</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminuiux-comingsoon.html" target="_blank">
+                            <i class="menu-icon bi bi-alarm"></i>
+                            <div class="col align-self-center menu-name">Coming soon</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminuiux-page-not-found-2.html">
+                            <i class="menu-icon bi bi-exclamation-circle"></i>
+                            <div class="col align-self-center menu-name">Error</div>
+                        </a>
+                    </li> {% endcomment %}
+                </ul>
+            </li>
+            {% comment %} <li class="nav-item">
+                <a class="nav-link" href="documentation.html">
+                    <i class="menu-icon bi bi-journal-code"></i>
+                    <div class="col menu-name">Documentation</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="components.html">
+                    <i class="menu-icon bi bi-cpu"></i>
+                    <span class="menu-name">Components</span>
+                </a>
+            </li> {% endcomment %}
+        </ul>
+
+        <div class=" mt-auto "></div>
+
+
+
+        <!-- quick links -->
+        <div class="px-3 not-iconic">
+            <div class="row gx-2">
+                <div class="col-12 d-flex justify-content-between">
+                    <a href="#" class="btn btn-square btn-link">
+                        <span class="position-relative">
+                            <i data-feather="heart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle p-1 bg-success rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </span>
+                    </a>
+                    <a href="#" class="btn btn-square btn-link">
+                        <span class="position-relative">
+                            <i data-feather="calendar"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle p-1 bg-warning rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </span>
+                    </a>
+                    <a href="#" class="btn btn-square btn-link">
+                        <i data-feather="inbox"></i>
+                    </a>
+                    <a href="#" class="btn btn-square btn-link">
+                        <i data-feather="help-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

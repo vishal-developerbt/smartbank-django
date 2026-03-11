@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+ {% include "components/head/head.html" %}
+<body class="main-bg main-bg-opac adminuiux-sidebar-standard theme-indigo bg-white adminuiux-sidebar-fill-bg adminuiux-header-fill-theme adminuiux-header-standard" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-bg" data-sidebarlayout="adminuiux-sidebar-standard" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-headerlayout="adminuiux-header-standard" data-bggradient="bg-white" data-headerfill="adminuiux-header-theme">
+   
+    {% comment %} {% include "components/pageloader/adminuiux-pageloader.html"  %} {% endcomment %}
+
+    <!-- Main content block -->
+ 
+        {% block content %} 
+
+      
+        {% include "components/footer/index-footer.html" %}
+        
+        {% endblock content %}
+ 
+    
+  
+<!-- jQuery (ABSOLUTELY FIRST) -->
+<script src="{% static 'js/vendor/jquery.min.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}"></script>
+  {% comment %} {% include "components/header/index-header.html" %} {% endcomment %}
+<!-- Feather icons -->
+<script src="{% static 'js/vendor/feather.min.js' %}"></script>
+
+<!-- DataTables CORE -->
+<script src="{% static 'js/vendor/dataTables.min.js' %}"></script>
+
+<!-- DataTables extensions (optional) -->
+<script src="{% static 'js/vendor/responsive.dataTables.min.js' %}"></script>
+
+<script src="{% static 'js/vendor/choices.min.js' %}"></script>
+<!-- Other vendors -->
+<script src="{% static 'js/vendor/progressbar.min.js' %}"></script>
+<script src="{% static 'js/vendor/chart.umd.min.js' %}"></script>
+<script src="{% static 'js/vendor/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/vendor/moment.min.js' %}"></script>
+<script src="{% static 'js/vendor/daterangepicker.js' %}"></script>
+
+<!-- Theme core -->
+<script src="{% static 'js/core/functions.js' %}"></script>
+<script src="{% static 'js/core/main.js' %}"></script>
+
+<!-- 3️⃣ Optional UI behavior (safe to load last) -->
+<script src="{% static 'js/core/responsive.js' %}"></script>
+<script src="{% static 'js/core/color-scheme.js' %}"></script>
+
+</body>
+</html>
